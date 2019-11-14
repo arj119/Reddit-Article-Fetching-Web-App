@@ -6,6 +6,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 const request = require('request');
+const srdto = require('./DTOs/SubredditDTO');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -31,29 +32,30 @@ router.route('/search/:subreddit')
       let query = req.params.subreddit;
       let url = `https://www.reddit.com/r/${query}/top.json`;
       request(url, function (err, response, body) {
+          res.setHeader('Content-Type', 'application/json');
           if(err) {
-              res.json("Not available");
+              res.send("Not available");
           } else {
-              res.json(JSON.parse(body));
+              res.json(srdto.subredditDTO(JSON.parse(body)));
           }
       });
     });
 
-// get searched subreddit top stories
-router.route('/search/:subreddit/year')
-// get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
-    .get(function(req, res) {
-        let query = req.params.subreddit;
-        let url = `https://www.reddit.com/r/${query}/top.json`;
-        request(url, function (err, response, body) {
-            if(err) {
-                res.status(err.httpRequestStatusCode).send("Error");
-            } else {
-                res.json(JSON.parse(body));
-            }
-        });
-    });
-
+// // get searched subreddit top stories
+// router.route('/search/:subreddit/year')
+// // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
+//     .get(function(req, res) {
+//         let query = req.params.subreddit;
+//         let url = `https://www.reddit.com/r/${query}/year`;
+//         request(url, function (err, response, body) {
+//             if(err) {
+//                 res.status(err.httpRequestStatusCode).send("Error");
+//             } else {
+//                 res.json(srdto.subredditDTO(JSON.parse(body)));
+//             }
+//         });
+//     });
+//
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
