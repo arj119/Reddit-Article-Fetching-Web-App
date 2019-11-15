@@ -2,9 +2,11 @@
 // =============================================================================
 
 // call the packages we need
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
-var bodyParser = require('body-parser');
+const express    = require('express');        // call express
+const app        = express();                 // define our app using express
+const cors = require('cors');
+app.use(cors());
+const bodyParser = require('body-parser');
 const request = require('request');
 const srdto = require('./DTOs/SubredditDTO');
 
