@@ -5,13 +5,13 @@
 const express    = require('express');        // call express
 const app        = express();                 // define our app using express
 const cors = require('cors');
-app.use(cors());
 const bodyParser = require('body-parser');
 const request = require('request');
 const srdto = require('./DTOs/SubredditDTO');
-
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
