@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {SubredditPost, SubredditTopResponse} from '../DTOs/SubredditTopResponse';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class SubredditService {
 
   constructor(private http: HttpClient) { }
   // Base url
-  baseurl = 'http://localhost:8080';
+  baseurl = environment.api;
 
   httpOptions = {
     headers: new HttpHeaders({
