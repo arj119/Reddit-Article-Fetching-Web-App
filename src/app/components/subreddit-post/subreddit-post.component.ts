@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SubredditPost} from "../../DTOs/SubredditTopResponse";
+import {SubredditService} from "../../services/subreddit.service";
 
 @Component({
   selector: 'app-subreddit-post',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubredditPostComponent implements OnInit {
 
-  constructor() { }
+  @Input() subreddit: SubredditPost;
 
-  ngOnInit() {
-  }
+  constructor() { }
+  ngOnInit() {}
 
 }
+
+
