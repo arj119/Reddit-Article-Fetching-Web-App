@@ -1,9 +1,9 @@
-<h2>search-bar works!</h2>
-<!--<div *ngFor="let post of posts"> <h2>{{post.authorFullName}} </h2></div>-->
-<!--<p>{{test.authorFullName}}</p>-->
-<ul>
-  <li *ngFor="let post of posts">
-    hi
-    {{ post.authorFullName }}
-  </li>
-</ul>
+<section class="filter-wrapper">
+  <div class="keyword-wrapper">
+    <input type="text" [formControl]="queryField" id="keyword" placeholder="Search for subreddits..." autofocus/>
+  </div>
+  <ul *ngIf="showResults" class="filter-select">
+    <li class="filter-select-list"><img src="" alt="" width="50" height="50"><p class="artist-name"></p>
+      <span class="tags"></span>
+  </ul>
+</section>
