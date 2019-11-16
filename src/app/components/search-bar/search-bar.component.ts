@@ -42,7 +42,4 @@ export class SearchBarComponent implements OnInit {
       }
     );
   }
-
-  private displayPosts() {
-  }
 }
