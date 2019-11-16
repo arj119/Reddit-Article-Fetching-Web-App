@@ -1,7 +1,7 @@
 
 module.exports =
 {
-    subredditDTO: function(body) {
+    subredditTopPostDTO: function(body) {
         if(body === undefined || body.data === undefined) {
             return [];
         }
@@ -18,6 +18,7 @@ module.exports =
 function sanitizeData(child) {
     return {
         authorFullName: child.data.author_fullname,
+        author: child.data.author,
         subreddit: child.data.subreddit,
         title: child.data.title,
         hidden: child.data.hidden,

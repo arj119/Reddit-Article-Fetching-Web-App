@@ -7,9 +7,8 @@ const app        = express();                 // define our app using express
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const request = require('request');
-const srdto = require('./DTOs/SubredditDTO');
-// configure app to use bodyParser()
-// this will let us get the data from a POST
+const subredditTopPostsResult = require('./DTOs/SubredditTopPostsResult');
+const subredditSearchResult = require('./DTOs/SubredditSearchResult');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,8 +27,7 @@ router.get('/', function(req, res) {
 // more routes for our API will happen here
 
 // get searched subreddit top stories
-router.route('/search/:subreddit')
-// get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
+router.route('/posts/search/:subreddit')
     .get(function(req, res) {
       let query = req.params.subreddit;
       let url = `https://www.reddit.com/r/${query}/top.json`;
@@ -38,26 +36,25 @@ router.route('/search/:subreddit')
           if(err) {
               res.send("Not available");
           } else {
-              res.json(srdto.subredditDTO(JSON.parse(body)));
+              res.json(subredditTopPostsResult.subredditTopPostDTO(JSON.parse(body)));
           }
       });
     });
 
-// // get searched subreddit top stories
-// router.route('/search/:subreddit/year')
-// // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
-//     .get(function(req, res) {
-//         let query = req.params.subreddit;
-//         let url = `https://www.reddit.com/r/${query}/year`;
-//         request(url, function (err, response, body) {
-//             if(err) {
-//                 res.status(err.httpRequestStatusCode).send("Error");
-//             } else {
-//                 res.json(srdto.subredditDTO(JSON.parse(body)));
-//             }
-//         });
-//     });
-//
+// get searched subreddits
+router.route('/subreddit/search/:query')
+    .get(function(req, res) {
+        let query = req.params.query;
+        let url = `https://www.reddit.com/api/subreddit_autocomplete.json?query=${query}`;
+        request(url, function (err, response, body) {
+            if(err) {
+                res.status(err.httpRequestStatusCode).send("Error");
+            } else {
+                res.json(subredditSearchResult.subredditSearchResultDTO(JSON.parse(body)));
+            }
+        });
+    });
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
