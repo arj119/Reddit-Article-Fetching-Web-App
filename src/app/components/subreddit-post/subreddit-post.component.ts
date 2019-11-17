@@ -11,7 +11,6 @@ export class SubredditPostComponent implements OnInit {
 
   @Input() subreddit: SubredditPost;
   image: string = undefined;
-  video: string = undefined;
 
   constructor() { }
 
