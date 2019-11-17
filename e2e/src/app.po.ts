@@ -6,6 +6,10 @@ export class AppPage {
   }
 
   getTitleText() {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+    return element(by.css('app-home-page')).getText() as Promise<string>;
+  }
+
+  getSearchBar() {
+    return element(by.css('app-search-bar .keyword-wrapper')).getText() as Promise<string>;
   }
 }
