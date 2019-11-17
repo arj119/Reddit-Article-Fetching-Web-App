@@ -1,8 +1,10 @@
 <div class="post">
-    <h4 class="post-title">{{subreddit.title}}</h4>
-    <div style="width: 100%;height: auto;"><img class="img-fluid" src="" style="width: 100%;" /></div>
-    <h6 class="text-muted card-subtitle mb-2">{{subreddit.authorFullName}}</h6>
-    <p class="card-text">{{subreddit.downs}}</p>
-    <a class="card-link" href="#">Link</a>
-    <a class="card-link" href="#">Link</a>
+  <a class="card-link post-title" [href]="subreddit.url" target="_blank">{{subreddit.title}}</a>
+  <h6 class="text-muted card-subtitle mb-2">{{subreddit.author}}</h6>
+  <div>
+    <img *ngIf="!subreddit.isVideo && image != undefined" class="img-fluid post-image" [src]="image"/>
+    <video *ngIf="subreddit.isVideo"
+           [src]="subreddit.secureMedia?.reddit_video?.fallback_url" controls></video>
+  </div>
+  <span class="card-text">ups: {{subreddit.ups}} downs: {{subreddit.downs}}</span>
 </div>

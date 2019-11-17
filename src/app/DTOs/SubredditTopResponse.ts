@@ -1,8 +1,9 @@
-export class SubredditTopResponse {
+export interface SubredditTopResponse {
   posts: SubredditPost[];
 }
-export class SubredditPost {
+export interface SubredditPost {
   authorFullName: string;
+  author: string;
   subreddit: string;
   title: string;
   hidden: boolean;
@@ -18,14 +19,19 @@ export class SubredditPost {
   isVideo: boolean;
 }
 
-export class MediaEmbed {
+export interface MediaEmbed {
   content: string;
   width: number;
   scrolling: boolean;
   height: number;
 }
 
-export class Oembed {
+export interface SecureMedia {
+  oembed?: Oembed;
+  reddit_video?: RedditVideo;
+}
+
+export interface Oembed {
   providerURL: string;
   description: string;
   title: string;
@@ -41,6 +47,14 @@ export class Oembed {
   thumbnailHeight: number;
 }
 
-export class SecureMedia {
-  oembed: Oembed;
+export interface RedditVideo {
+  fallback_url: string;
+  height: number;
+  width: number;
+  scrubber_media_url: string;
+  dash_url: string;
+  duration: number;
+  hls_url: string;
+  is_gif: boolean;
+  transcoding_status: string;
 }

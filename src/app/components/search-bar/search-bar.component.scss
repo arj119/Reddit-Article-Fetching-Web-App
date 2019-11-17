@@ -16,6 +16,8 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  -webkit-transition: margin-top 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
 .filter-wrapper {
   min-height: 100%;
@@ -28,15 +30,15 @@ body {
   position: relative;
 }
 #keyword {
-  //border: 1px solid #ccc;
+  border: 1px solid #ccc;
   padding: 10px;
   font: 1.5em 'Roboto', sans-serif;
   width: 50%;
   outline: none;
-  //transition: border 0.5s ease-in-out
+  transition: border 0.5s ease-in-out
 }
 #keyword:focus {
-  //border-color : rgba(81, 203, 238, 1);;
+  border-color : rgba(81, 203, 238, 1);
 }
 #keyword-button {
   position: absolute;
@@ -50,6 +52,7 @@ body {
   color: #ccc
 }
 .filter-select {
+  margin-top: 50px;
   width: 50%;
   list-style: none;
   font-size: 1.1em;
@@ -60,7 +63,7 @@ body {
   position: absolute;
   left: 25%;
   top: calc(50% + 25px);
-  max-height: calc(50% - 15px);
+  max-height: 100%;
   overflow-y: auto;
   background: #fff
 }
@@ -71,7 +74,8 @@ body {
   font-size: 12px;
   font-style: italic;
   color: #c6c6c6;
-  margin-right: 10px;
+  margin-right: auto;
+  margin-left: 70%;
   position: relative;
   top: -10px;
 }
@@ -79,15 +83,18 @@ body {
   color: #fff;
 }
 .filter-select-list {
+  min-height: 50px;
+  height: 20%;
+  width: content-box;
   cursor: pointer;
   padding: 5px 10px;
 }
-.artist-name {
+.subreddit-name {
   display: inline-block;
   position: absolute;
 }
 .filter-select-list:hover {
-  background:  #C0C0C0;
+  background: rgba(81, 203, 238, 1);
   color: #fff
 }
 .list-highlight,

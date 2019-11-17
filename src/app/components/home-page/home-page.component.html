@@ -1,2 +1,14 @@
+<nav class="navbar navbar-dark fixed-top home-page-nav navbar-custom">
+  <div class="container"><a class="navbar-brand" href="#" target="_top" style="margin: auto;">Top Subreddit Viewer</a>
+  </div>
+</nav>
 <app-search-bar (searchTerm)="getSearchResults($event);"></app-search-bar>
-<app-subreddit-post [subreddit]="test"></app-subreddit-post>
+<a *ngIf="subreddit !== undefined" class="subreddit-title" href="https://www.reddit.com/r/{{subreddit}}" target="_blank">
+  r/{{subreddit}}
+</a>
+<div *ngFor="let post of posts" >
+<app-subreddit-post [subreddit]="post"></app-subreddit-post>
+</div>
+<div *ngIf="posts.length == 0 && showNoPosts" class="empty-result">
+  Sorry No Top Posts!
+</div>

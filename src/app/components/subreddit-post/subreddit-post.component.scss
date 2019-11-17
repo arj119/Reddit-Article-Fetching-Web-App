@@ -8,6 +8,23 @@
   border: solid rgba(197, 197, 197, 0.31);
 
   &-title {
+    font-size: xx-large;
+    color: rgba(81, 203, 238, 1);
 
+    &:hover{
+      text-decoration: underline;
+      color: rgb(60, 135, 163);
+
+    }
   }
+
+  &-image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      max-height: 20%;
+      max-width: 50%;
+      padding: 10px;
+    }
 }
