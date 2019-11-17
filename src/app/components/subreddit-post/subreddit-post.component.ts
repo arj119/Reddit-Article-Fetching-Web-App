@@ -10,9 +10,18 @@ import {SubredditService} from "../../services/subreddit.service";
 export class SubredditPostComponent implements OnInit {
 
   @Input() subreddit: SubredditPost;
+  image: string = undefined;
+  video: string = undefined;
 
   constructor() { }
-  ngOnInit() {}
+
+  ngOnInit() {
+    if(this.subreddit.url.includes(".jpg")) {
+      this.image = this.subreddit.url;
+    } else if (this.subreddit.thumbnail.includes(".jpg")) {
+      this.image = this.subreddit.thumbnail;
+    }
+  }
 
 }
 

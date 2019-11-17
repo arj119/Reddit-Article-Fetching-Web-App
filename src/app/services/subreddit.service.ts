@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {SubredditPost} from '../DTOs/SubredditTopResponse';
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
+import {SubredditSearchResponse} from "../DTOs/SubredditSearchResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,16 @@ export class SubredditService {
   }
   // GET
   GetPosts(searchTerm: string): Observable<SubredditPost[]> {
-    return this.http.get<SubredditPost[]>(this.baseurl + '/api/search/' + searchTerm)
+    return this.http.get<SubredditPost[]>(this.baseurl + '/api/posts/search/' + searchTerm)
+      .pipe(
+        retry(3),
+        catchError(SubredditService.errorHandle)
+      );
+  }
+
+  // GET
+  GetSubredditSearchResults(searchTerm: string): Observable<SubredditSearchResponse[]> {
+    return this.http.get<SubredditSearchResponse[]>(this.baseurl + '/api/subreddit/search/' + searchTerm)
       .pipe(
         retry(3),
         catchError(SubredditService.errorHandle)
