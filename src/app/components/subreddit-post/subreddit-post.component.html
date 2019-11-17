@@ -1,6 +1,7 @@
 <div class="post">
   <a class="card-link post-title" [href]="subreddit.url" target="_blank">{{subreddit.title}}</a>
   <h6 class="text-muted card-subtitle mb-2">{{subreddit.author}}</h6>
+  <p *ngIf="subreddit.selftext != ''">{{subreddit.selftext}}</p>
   <div>
     <img *ngIf="!subreddit.isVideo && image != undefined" class="img-fluid post-image" [src]="image"/>
     <video *ngIf="subreddit.isVideo"
