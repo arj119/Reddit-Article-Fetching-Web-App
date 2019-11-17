@@ -11,7 +11,7 @@ import {$e} from "codelyzer/angular/styles/chars";
 })
 export class HomePageComponent implements OnInit {
 
-  private posts: SubredditPost[] = [];
+  posts: SubredditPost[] = [];
   subreddit: string = undefined;
   showNoPosts: boolean = false;
 
