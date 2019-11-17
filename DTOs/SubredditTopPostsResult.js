@@ -31,6 +31,7 @@ function sanitizeData(child) {
         secureMedia : child.data.secure_media,
         thumbnail : child.data.thumbnail,
         url: child.data.url,
-        isVideo: child.data.is_video
+        isVideo: child.data.is_video,
+        selftext: child.data.selftext
     }
 }
