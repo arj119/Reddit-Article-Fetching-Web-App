@@ -4,10 +4,10 @@
   </div>
   <ul *ngIf="showResults" class="filter-select">
     <li *ngFor="let result of results" (click)="search(result.name)" class="filter-select-list">
-      <img *ngIf="result.icon !== ''" onerror="this.onerror=null;" [src]="result.icon"  width="50" height="50">
-      <img *ngIf="result.icon === '' && result.communityIcon !==''" [src]="result.communityIcon" onerror="return null;" width="50" height="50">
-      <p class="subreddit-name">{{result.name}}</p>
-      <span class="tags">subs: {{result.numSubscribers}}</span>
+      <img *ngIf="result.icon !== ''" [src]="result.icon"  width="50" height="50" style="float: left;">
+      <img *ngIf="result.icon === '' && result.communityIcon !==''" style="float: left; " [src]="result.communityIcon" onerror="return null;" width="50" height="50">
+      <div class="subreddit-name" style="float: left; margin: auto">{{result.name}}</div>
+      <div class="tags" style="float: left; margin: auto">subs: {{result.numSubscribers}}</div>
     </li>
   </ul>
 </section>

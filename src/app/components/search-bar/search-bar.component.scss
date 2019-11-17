@@ -63,35 +63,38 @@ body {
   position: absolute;
   left: 25%;
   top: calc(50% + 25px);
-  max-height: 100%;
+  max-height: 200%;
   overflow-y: auto;
   background: #fff
 }
 .filter-select-list img {
-  margin-right: 30px;
+  margin-right: 20px;
+  float: left;
 }
 .tags {
   font-size: 12px;
   font-style: italic;
   color: #c6c6c6;
-  margin-right: auto;
-  margin-left: 70%;
   position: relative;
-  top: -10px;
+  float: left;
+  display: inline-block;
+  padding-top: 15px;
+  padding-left: 20px;
+
 }
 .filter-select-list:hover .tags {
   color: #fff;
 }
 .filter-select-list {
-  min-height: 50px;
-  height: 20%;
+  height: 60px;
   width: content-box;
   cursor: pointer;
   padding: 5px 10px;
 }
 .subreddit-name {
   display: inline-block;
-  position: absolute;
+  position: relative;
+  padding-top: 10px;
 }
 .filter-select-list:hover {
   background: rgba(81, 203, 238, 1);

@@ -17,6 +17,7 @@ export interface SubredditPost {
   thumbnail: string;
   url: string;
   isVideo: boolean;
+  selfText:string;
 }
 
 export interface MediaEmbed {
