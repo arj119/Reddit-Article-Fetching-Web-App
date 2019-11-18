@@ -3,10 +3,10 @@
     <input type="text" [formControl]="queryField" id="keyword" placeholder="Search for subreddits..." autofocus/>
   </div>
   <ul *ngIf="showResults" class="filter-select">
-    <li *ngFor="let result of results" (click)="search(result.name)" class="filter-select-list">
+    <li *ngFor="let result of results" (click)="search(result.name)" class="filter-select-list" id="search-result">
       <img *ngIf="result.icon !== ''" [src]="result.icon"  width="50" height="50" style="float: left;">
       <img *ngIf="result.icon === '' && result.communityIcon !==''" style="float: left; " [src]="result.communityIcon" onerror="return null;" width="50" height="50">
-      <div class="subreddit-name" style="float: left; margin: auto">{{result.name}}</div>
+      <div class="subreddit-name" style="float: left; margin: auto" id="result-name">{{result.name}}</div>
       <div class="tags" style="float: left; margin: auto">subs: {{result.numSubscribers}}</div>
     </li>
   </ul>

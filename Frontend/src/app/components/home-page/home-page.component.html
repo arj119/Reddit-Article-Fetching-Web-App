@@ -2,9 +2,9 @@
   <div class="container"><a class="navbar-brand" href="#" target="_top" style="margin: auto;">Top Subreddit Viewer</a>
   </div>
 </nav>
-<app-search-bar (searchTerm)="getSearchResults($event);"></app-search-bar>
+<app-search-bar (searchTerm)="getSearchResults($event);" id="search-bar"></app-search-bar>
 <a *ngIf="subreddit !== undefined" class="subreddit-title" href="https://www.reddit.com/r/{{subreddit}}" target="_blank"
-id="searchedSubreddit">
+id="searched-subreddit">
   r/{{subreddit}}
 </a>
 <app-subreddit-post *ngFor="let post of posts"  [subreddit]="post"></app-subreddit-post>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SubredditService } from "../../services/subreddit.service";
 import {SubredditPost} from "../../DTOs/SubredditTopResponse";
 import {Observable} from "rxjs";
-import {$e} from "codelyzer/angular/styles/chars";
 
 @Component({
   selector: 'app-home-page',
