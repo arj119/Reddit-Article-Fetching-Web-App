@@ -3,12 +3,12 @@
 
 This is my submission for the Cisco web apps exercise. Deployed on Heroku at https://subredditfrontend.herokuapp.com 
 
-#Running Locally
+# Running Locally
 
 To run locally (starting from project directory):
 
-In one terminal shell firstly run 'cd Server' and then 'npm install && npm start'.
-In another terminal shell firstly  'cd Frontend' and then 'npm install && npm run dev'.
+In one terminal shell firstly run 'cd Server' and then 'npm install && npm start' runs on port 8080.
+In another terminal shell firstly  'cd Frontend' and then 'npm install && npm run dev' runs on port 4200.
 
 # Backend
 I developed an Node ExpressJs back end server which will firstly let the user search Reddit's Subreddit directory with a given search
