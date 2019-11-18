@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {SubredditPost} from '../DTOs/SubredditTopResponse';
-import {environment} from "../../environments/environment.prod";
+import {environment} from "../../environments/environment";
 import {SubredditSearchResponse} from "../DTOs/SubredditSearchResponse";
 
 @Injectable({
