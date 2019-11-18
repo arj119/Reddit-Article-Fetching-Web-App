@@ -1,4 +1,4 @@
-#TOP SUBREDDIT FETCHING WEB APP 
+# TOP SUBREDDIT FETCHING WEB APP 
 **By Arjun Banerjee**
 
 This is my submission for the Cisco web apps exercise. 
@@ -10,7 +10,7 @@ To run locally (starting from project directory):
 In one terminal shell firstly run 'cd Server' and then 'npm install && npm start'.
 In another terminal shell firstly  'cd Frontend' and then 'npm install && npm run dev'.
 
-#Backend
+# Backend
 I developed an Node ExpressJs back end server which will firstly let the user search Reddit's Subreddit directory with a given search
 query. And also fetches the top posts for a user given subreddit name. The responses are sanitized
 and only produce relevant information for the user.
@@ -29,7 +29,7 @@ To retrieve top posts for the given subreddit name.
 
 
 
-#Frontend
+# Frontend
 To develop my front end I used Angular and implemented a single paged application. I also wrote some protractor e2e tests which
 can be run by 'npm run e2e'.
 
