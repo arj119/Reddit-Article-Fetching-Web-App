@@ -1,11 +1,11 @@
 <div class="post">
-  <a class="card-link post-title" [href]="subreddit.url" target="_blank">{{subreddit.title}}</a>
-  <h6 class="text-muted card-subtitle mb-2">{{subreddit.author}}</h6>
+  <a class="card-link post-title" [href]="subreddit.url" target="_blank" id="post-title">{{subreddit.title}}</a>
+  <h6 class="text-muted card-subtitle mb-2" id="post-author">{{subreddit.author}}</h6>
   <p *ngIf="subreddit.selftext != ''">{{subreddit.selftext}}</p>
   <div>
-    <img *ngIf="!subreddit.isVideo && image != undefined" class="img-fluid post-image" [src]="image"/>
+    <img *ngIf="!subreddit.isVideo && image != undefined" class="img-fluid post-image" [src]="image" id="post-image"/>
     <video *ngIf="subreddit.isVideo"
            [src]="subreddit.secureMedia?.reddit_video?.fallback_url" controls></video>
   </div>
-  <span class="card-text">&#11014; {{subreddit.ups}} &#11015;</span>
+  <span class="card-text" id="post-ups">&#11014; {{subreddit.ups}} &#11015;</span>
 </div>
